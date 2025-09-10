@@ -2,6 +2,7 @@ package org.readwriteemployees;
 
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,8 +22,8 @@ class EmployeeCsvReaderTest {
         assertEquals("Bumgarner", emp.getLastName());
         assertEquals("F", emp.getGender());
         assertEquals("serafina.bumgarner@exxonmobil.com", emp.getEmail());
-        assertEquals("9/21/1982", emp.getDateOfBirth());
-        assertEquals("2/1/2008", emp.getDateOfJoining());
+        assertEquals(LocalDate.of(1982, 9, 21), emp.getDateOfBirth());
+        assertEquals(LocalDate.of(2008, 2, 1), emp.getDateOfJoining());
         assertEquals(69294, emp.getSalary());
     }
 
