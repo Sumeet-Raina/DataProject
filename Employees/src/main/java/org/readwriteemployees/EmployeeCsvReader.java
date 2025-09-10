@@ -10,8 +10,20 @@ public class EmployeeCsvReader {
     // Parse one CSV line into Employee
     public Employee createEmployee(String line) {
         String[] parts = line.split(",");
-        return new Employee(parts[0], parts[1], parts[2], parts[3],
-                parts[4], parts[5], parts[6], parts[7], parts[8], parts[9]);
+
+        int employeeId = Integer.parseInt(parts[0]);
+        String prefix = parts[1];
+        String firstName = parts[2];
+        String middleInitial = parts[3];
+        String lastName = parts[4];
+        String gender = parts[5];
+        String email = parts[6];
+        String dob = parts[7];
+        String doj = parts[8];
+        int salary = Integer.parseInt(parts[9]);
+
+        return new Employee(employeeId, prefix, firstName, middleInitial, lastName,
+                gender, email, dob, doj, salary);
     }
 
     // Read file into list of lines

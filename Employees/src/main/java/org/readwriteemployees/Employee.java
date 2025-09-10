@@ -1,7 +1,7 @@
 package org.readwriteemployees;
 
 public class Employee {
-  private String employeeID;
+  private int employeeID;
   private String namePrefix;
   private String firstName;
   private String middleInitial;
@@ -10,9 +10,9 @@ public class Employee {
   private String email;
   private String dateOfBirth;
   private String dateOfJoining;
-  private String salary;
+  private int salary;
 
-  public Employee(String employeeID, String namePrefix, String firstName, String middleInitial, String lastName, String gender, String email, String dateOfBirth, String dateOfJoining, String salary) {
+  public Employee(int employeeID, String namePrefix, String firstName, String middleInitial, String lastName, String gender, String email, String dateOfBirth, String dateOfJoining, int salary) {
     this.employeeID = employeeID;
     this.namePrefix = namePrefix;
     this.firstName = firstName;
@@ -25,11 +25,11 @@ public class Employee {
     this.salary = salary;
   }
 
-  public String getEmployeeID() {
+  public int getEmployeeID() {
     return employeeID;
   }
 
-  public void setEmployeeID(String employeeID) {
+  public void setEmployeeID(int employeeID) {
     this.employeeID = employeeID;
   }
 
@@ -97,11 +97,11 @@ public class Employee {
     this.dateOfJoining = dateOfJoining;
   }
 
-  public String getSalary() {
+  public int getSalary() {
     return salary;
   }
 
-  public void setSalary(String salary) {
+  public void setSalary(int salary) {
     this.salary = salary;
   }
 
