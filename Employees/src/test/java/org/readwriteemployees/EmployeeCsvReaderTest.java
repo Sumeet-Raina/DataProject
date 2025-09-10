@@ -14,7 +14,7 @@ class EmployeeCsvReaderTest {
         String line = "198429,Mrs.,Serafina,I,Bumgarner,F,serafina.bumgarner@exxonmobil.com,9/21/1982,2/1/2008,69294";
         Employee emp = reader.createEmployee(line);
 
-        assertEquals("198429", emp.getEmployeeID());
+        assertEquals(198429, emp.getEmployeeID());
         assertEquals("Mrs.", emp.getNamePrefix());
         assertEquals("Serafina", emp.getFirstName());
         assertEquals("I", emp.getMiddleInitial());
@@ -23,7 +23,7 @@ class EmployeeCsvReaderTest {
         assertEquals("serafina.bumgarner@exxonmobil.com", emp.getEmail());
         assertEquals("9/21/1982", emp.getDateOfBirth());
         assertEquals("2/1/2008", emp.getDateOfJoining());
-        assertEquals("69294", emp.getSalary());
+        assertEquals(69294, emp.getSalary());
     }
 
     @Test
@@ -39,8 +39,8 @@ class EmployeeCsvReaderTest {
         ArrayList<Employee> employees = reader.readEmployees("src/main/resources/employees_short.csv");
         assertEquals(10, employees.size());
 
-        assertEquals("198429", employees.get(0).getEmployeeID());
-        assertEquals("744723", employees.get(employees.size()-1).getEmployeeID());
+        assertEquals(198429, employees.get(0).getEmployeeID());
+        assertEquals(744723, employees.get(employees.size()-1).getEmployeeID());
     }
 
 }
