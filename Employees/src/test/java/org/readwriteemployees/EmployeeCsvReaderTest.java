@@ -28,7 +28,7 @@ class EmployeeCsvReaderTest {
 
     @Test
     void testReadFileLines() {
-        ArrayList<String> lines = reader.readFileLines("employees_short.csv");
+        ArrayList<String> lines = reader.readFileLines("src/main/resources/employees_short.csv");
         assertEquals(11, lines.size());  // header + 10 rows
         assertTrue(lines.get(0).contains("Emp ID,Name Prefix"));
         assertTrue(lines.get(lines.size()-1).contains("744723,Hon.,Bibi,H,Paddock,F"));
@@ -36,7 +36,7 @@ class EmployeeCsvReaderTest {
 
     @Test
     void testReadEmployees() {
-        ArrayList<Employee> employees = reader.readEmployees("employees_short.csv");
+        ArrayList<Employee> employees = reader.readEmployees("src/main/resources/employees_short.csv");
         assertEquals(10, employees.size());
 
         assertEquals("198429", employees.get(0).getEmployeeID());
