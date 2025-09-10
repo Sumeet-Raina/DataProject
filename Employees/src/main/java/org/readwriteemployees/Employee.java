@@ -1,31 +1,44 @@
 package org.readwriteemployees;
 
 public class Employee {
-  private String id;
+  private String employeeID;
+  private String namePrefix;
   private String firstName;
+  private String middleInitial;
   private String lastName;
-  private String department;
-  private String role;
+  private String gender;
   private String email;
+  private String dateOfBirth;
+  private String dateOfJoining;
   private String salary;
 
-
-  public Employee(String id, String firstName, String lastName, String department, String role, String email, String salary) {
-    this.id = id;
+  public Employee(String employeeID, String namePrefix, String firstName, String middleInitial, String lastName, String gender, String email, String dateOfBirth, String dateOfJoining, String salary) {
+    this.employeeID = employeeID;
+    this.namePrefix = namePrefix;
     this.firstName = firstName;
+    this.middleInitial = middleInitial;
     this.lastName = lastName;
-    this.department = department;
-    this.role = role;
+    this.gender = gender;
     this.email = email;
+    this.dateOfBirth = dateOfBirth;
+    this.dateOfJoining = dateOfJoining;
     this.salary = salary;
   }
 
-  public String getId() {
-    return id;
+  public String getEmployeeID() {
+    return employeeID;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setEmployeeID(String employeeID) {
+    this.employeeID = employeeID;
+  }
+
+  public String getNamePrefix() {
+    return namePrefix;
+  }
+
+  public void setNamePrefix(String namePrefix) {
+    this.namePrefix = namePrefix;
   }
 
   public String getFirstName() {
@@ -36,6 +49,14 @@ public class Employee {
     this.firstName = firstName;
   }
 
+  public String getMiddleInitial() {
+    return middleInitial;
+  }
+
+  public void setMiddleInitial(String middleInitial) {
+    this.middleInitial = middleInitial;
+  }
+
   public String getLastName() {
     return lastName;
   }
@@ -44,20 +65,12 @@ public class Employee {
     this.lastName = lastName;
   }
 
-  public String getDepartment() {
-    return department;
+  public String getGender() {
+    return gender;
   }
 
-  public void setDepartment(String department) {
-    this.department = department;
-  }
-
-  public String getRole() {
-    return role;
-  }
-
-  public void setRole(String role) {
-    this.role = role;
+  public void setGender(String gender) {
+    this.gender = gender;
   }
 
   public String getEmail() {
@@ -68,6 +81,22 @@ public class Employee {
     this.email = email;
   }
 
+  public String getDateOfBirth() {
+    return dateOfBirth;
+  }
+
+  public void setDateOfBirth(String dateOfBirth) {
+    this.dateOfBirth = dateOfBirth;
+  }
+
+  public String getDateOfJoining() {
+    return dateOfJoining;
+  }
+
+  public void setDateOfJoining(String dateOfJoining) {
+    this.dateOfJoining = dateOfJoining;
+  }
+
   public String getSalary() {
     return salary;
   }
@@ -76,16 +105,19 @@ public class Employee {
     this.salary = salary;
   }
 
-  @java.lang.Override
-  public java.lang.String toString() {
+  @Override
+  public String toString() {
     return "Employee{" +
-      "id='" + id + '\'' +
-      ", firstName='" + firstName + '\'' +
-      ", lastName='" + lastName + '\'' +
-      ", department='" + department + '\'' +
-      ", role='" + role + '\'' +
-      ", email='" + email + '\'' +
-      ", salary='" + salary + '\'' +
-      '}';
+            "employeeID='" + employeeID + '\'' +
+            ", namePrefix='" + namePrefix + '\'' +
+            ", firstName='" + firstName + '\'' +
+            ", middleInitial='" + middleInitial + '\'' +
+            ", lastName='" + lastName + '\'' +
+            ", gender='" + gender + '\'' +
+            ", email='" + email + '\'' +
+            ", dateOfBirth='" + dateOfBirth + '\'' +
+            ", dateOfJoining='" + dateOfJoining + '\'' +
+            ", salary='" + salary + '\'' +
+            '}';
   }
 }
