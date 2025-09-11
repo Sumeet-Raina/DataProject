@@ -4,6 +4,7 @@ target/
 !**/src/test/**/target/
 .idea/material_theme_project_new.xml
 .idea/misc.xml
+app.log
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
