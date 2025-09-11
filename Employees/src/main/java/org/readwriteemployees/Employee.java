@@ -15,12 +15,14 @@ public class Employee {
   private LocalDate dateOfJoining;
   private int salary;
 
+  // ✅ No-arg constructor for Jackson
+  public Employee() {}
+
   public Employee(int employeeID, String namePrefix, String firstName, String middleInitial,
                   String lastName, String gender, String email,
                   String dobString, String dojString, int salary) {
 
     DateTimeFormatter parser = DateTimeFormatter.ofPattern("M/d/yyyy");
-
     this.employeeID = employeeID;
     this.namePrefix = namePrefix;
     this.firstName = firstName;
@@ -45,7 +47,16 @@ public class Employee {
   public LocalDate getDateOfJoining() { return dateOfJoining; }
   public int getSalary() { return salary; }
 
-  // Setters (if needed)
+  // ✅ Add setters so Jackson can populate fields
+  public void setEmployeeID(int employeeID) { this.employeeID = employeeID; }
+  public void setNamePrefix(String namePrefix) { this.namePrefix = namePrefix; }
+  public void setFirstName(String firstName) { this.firstName = firstName; }
+  public void setMiddleInitial(String middleInitial) { this.middleInitial = middleInitial; }
+  public void setLastName(String lastName) { this.lastName = lastName; }
+  public void setGender(String gender) { this.gender = gender; }
+  public void setEmail(String email) { this.email = email; }
+  public void setDateOfBirth(LocalDate dateOfBirth) { this.dateOfBirth = dateOfBirth; }
+  public void setDateOfJoining(LocalDate dateOfJoining) { this.dateOfJoining = dateOfJoining; }
   public void setSalary(int salary) { this.salary = salary; }
 
   @Override
@@ -65,4 +76,3 @@ public class Employee {
       '}';
   }
 }
-

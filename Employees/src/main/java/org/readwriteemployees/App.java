@@ -1,44 +1,55 @@
 package org.readwriteemployees;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
-import java.util.stream.Collectors;
 
 public class App {
-    public static final Logger logger = Logger.getLogger(App.class.getName());
+  public static final Logger logger = Logger.getLogger(App.class.getName());
 
-    public static void main(String[] args) {
-        try {
-            logger.setLevel(Level.ALL);
-            FileHandler fileHandler = new FileHandler("app.log", true);
-            fileHandler.setFormatter(new SimpleFormatter());
-            logger.addHandler(fileHandler);
+  public static void main(String[] args) {
+    try {
+      logger.setLevel(Level.ALL);
+      FileHandler fileHandler = new FileHandler("app.log", true);
+      fileHandler.setFormatter(new SimpleFormatter());
+      logger.addHandler(fileHandler);
 
-            logger.info("Application started.");
+      logger.info("Application started.");
 
-            String path = "src/main/resources/employees.csv"; // full test file
-            EmployeeCsvReader reader = new EmployeeCsvReader();
-            ArrayList<Employee> employees = reader.readEmployees(path);
+      String path = "src/main/resources/employees.csv"; // full test file
+      EmployeeCsvReader reader = new EmployeeCsvReader();
+      ArrayList<Employee> employees = reader.readEmployees(path);
 
-            logger.log(Level.INFO, "Loaded {0} employees successfully.", employees.size());
+      // Write employees to JSON file
+      EmployeeDataHandler.writeEmployeesToJson(employees, "src/main/resources/employees.json");
 
-            ArrayList<String> faulty = reader.getFaultyLines();
-            logger.log(Level.WARNING, "Found {0} faulty lines.", faulty.size());
+      // Read employees back from JSON file
+      ArrayList<Employee> loadedEmployeesJson =
+        EmployeeDataHandler.readEmployeesFromJson("src/main/resources/employees.json");
+      System.out.println("Loaded from JSON file: " + loadedEmployeesJson.size());
 
-            for (String badLine : faulty) {
-                logger.warning("Faulty: " + badLine);
-            }
+      // Write employees to XML file
+      EmployeeDataHandler.writeEmployeesToXml(employees, "src/main/resources/employees.xml");
 
-            logger.info("Application finished.");
-        } catch (Exception e) {
-            logger.log(Level.SEVERE, "Application error", e);
-        }
+      //  Read employees back from XML file
+      ArrayList<Employee> loadedEmployeesXml =
+        EmployeeDataHandler.readEmployeesFromXml("src/main/resources/employees.xml");
+      System.out.println("Loaded from XML file: " + loadedEmployeesXml.size());
+
+      logger.log(Level.INFO, "Loaded {0} employees successfully from CSV.", employees.size());
+
+      ArrayList<String> faulty = reader.getFaultyLines();
+      logger.log(Level.WARNING, "Found {0} faulty lines.", faulty.size());
+
+      for (String badLine : faulty) {
+        logger.warning("Faulty: " + badLine);
+      }
+
+      logger.info("Application finished.");
+    } catch (Exception e) {
+      logger.log(Level.SEVERE, "Application error", e);
     }
+  }
 }
